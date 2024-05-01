@@ -7,18 +7,24 @@
 
 /* Body styles */
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background-color: #000; /* Change the background color to black */
-  display: flex;
-  color: #fff; /* Change text color to white */
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    text-align: center;
 }
 
 /* Navigation styles */
 header {
-  background-color: #000; /* Change the background color to black */
-  color: #fff;
-  padding: 1rem;
+    background-color: #000;
+    color: #fff;
+    padding: 1rem;
 }
 
 nav ul {
@@ -83,7 +89,6 @@ section {
 footer {
     background-color: #000;
     color: #fff;
-    text-align: left;
+    text-align: center;
     padding: 1rem 0;
 }
-
