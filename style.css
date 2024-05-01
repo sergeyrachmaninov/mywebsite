@@ -11,12 +11,7 @@ body {
   line-height: 1.6;
   background-color: #000; /* Change the background color to black */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
   color: #fff; /* Change text color to white */
-  text-align: center;
 }
 
 /* Navigation styles */
