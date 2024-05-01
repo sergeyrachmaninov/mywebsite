@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <meta name="description" content="A personal portfolio showcasing projects and skills in Information Technology (IT).">
+    <meta name="keywords" content="personal portfolio, IT, web development, projects, skills">
+    <meta name="author" content="Your Name">
+    <!-- Add CSS link here -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Section -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Homepage Section -->
+    <section id="home">
+        <h1>Welcome to My Personal Portfolio</h1>
+        <p>Introduction to the individual and their career transition, highlighting key skills and expertise.</p>
+    </section>
+
+	<!-- About Me Section -->
+	<section id="about">
+	    <h2>About Me</h2>
+	    <div class="about-content">
+	        <div class="profile-picture">
+	            <img src="profile_picture.jpg" alt="Profile Picture">
+	        </div>
+	        <div class="about-description">
+	            <p>I am [Individual's Name], a dedicated professional currently transitioning from a background in telemarketing to a career in Information Technology (IT). With a strong passion for problem-solving and a knack for learning new technologies, I am eager to leverage my skills and enthusiasm to make a positive impact in the IT industry.</p>
+	            <p>My journey into IT began with self-directed learning and online courses, where I gained foundational knowledge in programming languages such as HTML, CSS, and JavaScript. I am currently expanding my skillset through hands-on projects and further education in areas such as web development, software engineering, and data analytics.</p>
+	            <p>My career goals in IT include [insert specific career goals here, e.g., pursuing a role as a front-end developer, obtaining certifications in cloud computing, etc.]. I am committed to continuous learning and growth, and I am excited about the opportunities that lie ahead in the dynamic field of Information Technology.</p>
+	        </div>
+	    </div>
+	</section>
+
+	<!-- Portfolio Section -->
+	<section id="portfolio">
+	    <h2>Portfolio Showcase</h2>
+	    <div class="project-grid">
+	        <!-- Project Card 1 -->
+	        <div class="project-card">
+	            <img src="project1.jpg" alt="Project 1">
+	            <h3>Web Development Project</h3>
+	            <p>This project involved building a responsive website using HTML, CSS, and JavaScript.</p>
+	            <a href="project_detail.html">View Project</a>
+	        </div>
+	        <!-- Project Card 2 -->
+	        <div class="project-card">
+	            <img src="project2.jpg" alt="Project 2">
+	            <h3>Data Analysis Project</h3>
+	            <p>Analysis of large datasets using Python and pandas library to extract meaningful insights.</p>
+	            <a href="project_detail.html">View Project</a>
+	        </div>
+	        <!-- Project Card 3 -->
+	        <div class="project-card">
+	            <img src="project3.jpg" alt="Project 3">
+	            <h3>Mobile App Development</h3>
+	            <p>Design and development of a mobile application for iOS and Android platforms.</p>
+	            <a href="project_detail.html">View Project</a>
+	        </div>
+	        <!-- Add more project cards as needed -->
+	    </div>
+	</section>
+
+	<!-- Contact Section -->
+	<section id="contact">
+	    <h2>Contact Me</h2>
+	    <p>Have a question or want to get in touch? Send me a message!</p>
+	    <form action="send_email.php" method="post">
+	        <div class="form-group">
+	            <label for="name">Your Name:</label>
+	            <input type="text" id="name" name="name" required>
+	        </div>
+	        <div class="form-group">
+	            <label for="email">Your Email:</label>
+	            <input type="email" id="email" name="email" required>
+	        </div>
+	        <div class="form-group">
+	            <label for="subject">Subject:</label>
+	            <input type="text" id="subject" name="subject" required>
+	        </div>
+	        <div class="form-group">
+	            <label for="message">Message:</label>
+	            <textarea id="message" name="message" rows="5" required></textarea>
+	        </div>
+	        <button type="submit">Send Message</button>
+	    </form>
+	</section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Personal Portfolio. All rights reserved.</p>
+    </footer>
+</body>
+</html>
