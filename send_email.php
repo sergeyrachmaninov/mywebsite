@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = $_POST["message"];
     
     // Set recipient email address
-    $to = "your_email@example.com"; // Change this to your email address
+    $to = "austincmcmurry@proton.me"; // email address
     
     // Set email headers
     $headers = "From: $name <$email>" . "\r\n";
