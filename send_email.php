@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = filter\_input(INPUT\_POST, "message", FILTER\_SANITIZE\_SPECIAL\_CHARS);
 
     // Set recipient email address
-    $to = "austincmcmurry@proton.me"; // email address
+    $to = "network_solutions@austinmcmurry.uk"; // email address
 
     // Set email headers
     $headers = "From: $name <$email>" . "\r\n";
