@@ -2,10 +2,10 @@
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize form data
-    $name = filter\_input(INPUT\_POST, "name", FILTER\_SANITIZE\_SPECIAL\_CHARS);
-    $email = filter\_input(INPUT\_POST, "email", FILTER\_VALIDATE\_EMAIL);
-    $subject = filter\_input(INPUT\_POST, "subject", FILTER\_SANITIZE\_SPECIAL\_CHARS);
-    $message = filter\_input(INPUT\_POST, "message", FILTER\_SANITIZE\_SPECIAL\_CHARS);
+    $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS);
+    $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
+    $subject = filter_input(INPUT_POST, "subject", FILTER_SANITIZE_SPECIAL_CHARS);
+    $message = filter_input(INPUT_POST, "message", FILTER_SANITIZE_SPECIAL_CHARS);
 
     // Set recipient email address
     $to = "network_solutions@austinmcmurry.uk"; // email address
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
 
     // Send email using a secure method
-    if (send\_email($to, $subject, $message, $headers)) {
+    if (send_email($to, $subject, $message, $headers)) {
         // Email sent successfully
         echo "Your message has been sent successfully!";
     } else {
@@ -24,9 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Oops! Something went wrong. Please try again later.";
     }
 } else {
-    // Redirect to contact page if accessed directly
-    header("Location: index.html");
-    exit;
+    // Don't redirect if the form has not been submitted
 }
 
 // Function to send email securely
