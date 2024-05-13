@@ -1,4 +1,12 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+// Include PHPMailer autoloader
+require 'PHPMailer.php';
+require 'SMTP.php';
+require 'Exception.php';
+
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize form data
@@ -10,13 +18,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Set recipient email address
     $to = "network_solutions@austinmcmurry.uk"; // email address
 
-    // Set email headers
-    $headers = "From: $name <$email>" . "\r\n";
-    $headers .= "Reply-To: $email" . "\r\n";
-    $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
+    // Create a new PHPMailer instance
+    $mail = new PHPMailer();
 
-    // Send email using a secure method
-    if (send_email($to, $subject, $message, $headers)) {
+    // Configure SMTP settings
+    $mail->isSMTP();
+    $mail->Host = 'route1.mx.cloudflare.net'; // Change this to the appropriate Cloudflare email server
+    $mail->Port = 587; // Use the appropriate port (587 for TLS)
+    $mail->SMTPSecure = 'tls'; // Use TLS encryption
+    $mail->SMTPAuth = false; // Set to true if SMTP authentication is required
+    $mail->Username = 'austincmcmurry@proton.me'; // Your Cloudflare email username (if required)
+    $mail->Password = "Htm':ksUr#4CF{8R7vBrUrRdwm{2Q3^4-J$.NuoyR%mJYy~b-^+Pi"; // Your Cloudflare email password (if required)
+
+    // Set email content
+    $mail->setFrom($email, $name);
+    $mail->addAddress($to);
+    $mail->Subject = $subject;
+    $mail->Body = $message;
+
+    // Send the email
+    if ($mail->send()) {
         // Email sent successfully
         echo "Your message has been sent successfully!";
     } else {
@@ -26,18 +47,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     // Don't redirect if the form has not been submitted
 }
-
-// Function to send email securely
-function send\_email($to, $subject, $message, $headers) {
-    // Check if all required parameters are provided
-    if (!empty($to) && !empty($subject) && !empty($message) && !empty($headers)) {
-        // Send email
-        return mail($to, $subject, $message, $headers);
-    } else {
-        // Error handling
-        error\_log("Error sending email: Missing required parameters.");
-        return false;
-    }
-}
-
 ?>
+
