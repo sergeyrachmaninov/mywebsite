@@ -3,9 +3,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // Include PHPMailer autoloader
-require 'PHPMailer.php';
-require 'SMTP.php';
-require 'Exception.php';
+require '/PHPMailer.php';
+require '/SMTP.php';
+require '/Exception.php';
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = filter_input(INPUT_POST, "message", FILTER_SANITIZE_SPECIAL_CHARS);
 
     // Set recipient email address
-    $to = "network_solutions@austinmcmurry.uk"; // email address
+    $to = "austincmcmurry@proton.me"; // email address
 
     // Create a new PHPMailer instance
     $mail = new PHPMailer();
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail->SMTPSecure = 'tls'; // Use TLS encryption
     $mail->SMTPAuth = false; // Set to true if SMTP authentication is required
     $mail->Username = 'austincmcmurry@proton.me'; // Your Cloudflare email username (if required)
-    $mail->Password = "Htm':ksUr#4CF{8R7vBrUrRdwm{2Q3^4-J$.NuoyR%mJYy~b-^+Pi"; // Your Cloudflare email password (if required)
+    $mail->Password = ""; // Your Cloudflare email password (if required)
 
     // Set email content
     $mail->setFrom($email, $name);
