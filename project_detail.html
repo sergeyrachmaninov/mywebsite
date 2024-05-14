@@ -37,153 +37,258 @@
         <p>The app was successfully debugged and tested. All encryption and decryption functionality worked as intended while maintaining file integrity.</p>
         <h3>The Code</h3>
         <p>import java.io.File;<p>
+        <h3></h3>
         <p>import java.io.FileInputStream;</p>
+        <h3></h3>
         <p>import java.io.FileOutputStream;</p>
+        <h3></h3>
         <p>import java.io.IOException;</p>
+        <h3></h3>
         <p>import java.security.Key;<p>
+        <h3></h3>
         <p>import java.util.Base64;<p>
+        <h3></h3>
         <p>import java.util.Scanner;<p>
+        <h3></h3>
         <p>import javax.crypto.Cipher;<p>
+        <h3></h3>
         <p>import javax.crypto.spec.SecretKeySpec;<p>
-        
+        <h3></h3>
         <p>public class EncryptionApp {<p>
-        
+        <h3></h3>
             <p>public static void main(String[] args) {<p>
+            <h3></h3>
                 <p>Scanner scanner = new Scanner(System.in);<p>
-        
+                <h3></h3>
                 <p>System.out.println("Welcome to EncryptionApp!");<p>
+                <h3></h3>
                 <p>System.out.println("Select an option:");<p>
+                <h3></h3>
                 <p>System.out.println("1. Encrypt File");<p>
+                <h3></h3>
                 <p>System.out.println("2. Decrypt File");<p>
+                <h3></h3>
                 <p>System.out.println("3. Generate Encryption Key");<p>
+                <h3></h3>
                 <p>System.out.print("Enter your choice (1, 2, or 3): ");<p>
-        
+                <h3></h3>
                 <p>int choice = scanner.nextInt();<p>
-        
+                <h3></h3>
                 <p>switch (choice) {<p>
+                    <h3></h3>
                     <p>case 1:<p>
+                    <h3></h3>
                         <p>encryptFile(scanner);<p>
+                        <h3></h3>
                         <p>break;<p>
+                        <h3></h3>
                     <p>case 2:<p>
+                    <h3></h3>
                         <p>decryptFile(scanner);<p>
+                        <h3></h3>
                         <p>break;<p>
+                        <h3></h3>
                     <p>case 3:<p>
+                        <h3></h3>
                         <p>generateEncryptionKey();<p>
+                        <h3></h3>
                         <p>break;<p>
+                        <h3></h3>
                     <p>default:<p>
+                        <h3></h3>
                         <p>System.out.println("Invalid choice. Please select 1, 2, or 3.");<p>
+                        <h3></h3>
                 <p>}<p>
+                <h3></h3>
         
                 <p>scanner.close();<p>
+                <h3></h3>
             <p>}<p>
+            <h3></h3> 
         
             <p>public static void encryptFile(Scanner scanner) {<p>
+            <h3></h3>
                 <p>System.out.print("Enter path of the file to encrypt: ");<p>
+                <h3></h3>
                 <p>String inputFile = scanner.next();<p>
+                <h3></h3>
                 <p>System.out.print("Enter path for encrypted output file: ");<p>
+                <h3></h3>
                 <p>String outputFile = scanner.next();<p>
+                <h3></h3>
                 <p>System.out.print("Enter encryption key: ");<p>
+                <h3></h3>
                 <p>String key = scanner.next();<p>
+                <h3></h3>
         
                 <p>// Call encryptFile method with user inputs<p>
+                <h3></h3>
                 <p>if (performFileEncryption(inputFile, outputFile, key)) {<p>
+                <h3></h3>
                     <p>System.out.println("File encrypted successfully.");<p>
+                    <h3></h3>
                 <p>} else {<p>
+                <h3></h3>
                     <p>System.out.println("Failed to encrypt file.");<p>
+                    <h3></h3>
                 <p>}<p>
+                <h3></h3>    
             <p>}<p>
-        
+            <h3></h3>
             <p>public static void decryptFile(Scanner scanner) {<p>
+            <h3></h3>
                 <p>System.out.print("Enter path of the file to decrypt: ");<p>
+                <h3></h3>
                 <p>String inputFile = scanner.next();<p>
+                <h3></h3>
                 <p>System.out.print("Enter path for decrypted output file: ");<p>
+                <h3></h3>
                 <p>String outputFile = scanner.next();<p>
+                <h3></h3>
                 <p>System.out.print("Enter decryption key: ");<p>
+                <h3></h3>
                 <p>String key = scanner.next();<p>
-        
+                <h3></h3>
                 <p>// Call decryptFile method with user inputs<p>
+                <h3></h3>
                 <p>if (performFileDecryption(inputFile, outputFile, key)) {<p>
+                <h3></h3>
                     <p>System.out.println("File decrypted successfully.");<p>
+                    <h3></h3>
                 <p>} else {<p>
+                <h3></h3>
                     <p>System.out.println("Failed to decrypt file.");<p>
+                    <h3></h3>
                 <p>}<p>
+                <h3></h3>
             <p>}<p>
-        
+            <h3></h3>
             <p>public static void generateEncryptionKey() {<p>
+                <h3></h3>
                 <p>try {<p>
+                <h3></h3>
                     <p>// Generate AES encryption key<p>
+                    <h3></h3>
                     <p>KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");<p>
+                    <h3></h3>
                     <p>keyGenerator.init(256);<p>
+                    <h3></h3>
                     <p>SecretKey secretKey = keyGenerator.generateKey();<p>
-        
+                    <h3></h3>
                     <p>// Convert key to Base64 string for storage or transmission<p>
+                    <h3></h3>
                     <p>String encodedKey = Base64.getEncoder().encodeToString(secretKey.getEncoded());<p>
-        
+                    <h3></h3>
                     <p>System.out.println("AES encryption key generated successfully:");<p>
+                    <h3></h3>
                     <p>System.out.println(encodedKey);<p>
+                    <h3></h3>
                 <p>} catch (Exception e) {<p>
+                <h3></h3>
                     <p>System.out.println("Error occurred during key generation: " + e.getMessage());<p>
+                    <h3></h3>
                 <p>}<p>
+                <h3></h3>
             <p>}<p>
-        
+            <h3></h3>
             <p>public static boolean performFileEncryption(String inputFile, String outputFile, String key) {<p>
+                <h3></h3>
                 <p>try {<p>
+                <h3></h3>
                     <p>// Read input file<p>
+                    <h3></h3>
                     <p>File file = new File(inputFile);<p>
+                    <h3></h3>
                     <p>FileInputStream inputStream = new FileInputStream(file);<p>
+                    <h3></h3>
                     <p>byte[] inputBytes = new byte[(int) file.length()];<p>
+                    <h3></h3>
                     <p>inputStream.read(inputBytes);<p>
+                    <h3></h3>
                     <p>inputStream.close();<p>
-        
+                    <h3></h3>
                     <p>// Initialize AES cipher with provided key<p>
+                    <h3></h3>
                     <p>Key secretKey = new SecretKeySpec(key.getBytes(), "AES");<p>
+                    <h3></h3>
                     <p>Cipher cipher = Cipher.getInstance("AES");<p>
+                    <h3></h3>
                     <p>cipher.init(Cipher.ENCRYPT_MODE, secretKey);<p>
-        
+                    <h3></h3>
                     <p>// Encrypt input bytes<p>
+                    <h3></h3>
                     <p>byte[] encryptedBytes = cipher.doFinal(inputBytes);<p>
-        
+                    <h3></h3>
                     <p>// Write encrypted bytes to output file<p>
+                    <h3></h3>
                     <p>FileOutputStream outputStream = new FileOutputStream(outputFile);<p>
+                    <h3></h3>
                     <p>outputStream.write(encryptedBytes);<p>
+                    <h3></h3>
                     <p>outputStream.close();<p>
-        
+                    <h3></h3>
                     <p>return true;<p>
+                    <h3></h3>
                 <p>} catch (Exception e) {<p>
+                    <h3></h3>
                     <p>System.out.println("Error occurred during encryption: " + e.getMessage());<p>
+                    <h3></h3>
                     <p>return false;<p>
+                    <h3></h3>
                 <p>}<p>
+                <h3></h3>
             <p>}<p>
-        
+            <h3></h3>
             <p>public static boolean performFileDecryption(String inputFile, String outputFile, String key) {<p>
+            <h3></h3>
                 <p>try {<p>
+                <h3></h3>
                     <p>// Read input file<p>
+                    <h3></h3>
                     <p>File file = new File(inputFile);<p>
+                    <h3></h3>
                     <p>FileInputStream inputStream = new FileInputStream(file);<p>
+                    <h3></h3>
                     <p>byte[] inputBytes = new byte[(int) file.length()];<p>
+                    <h3></h3>
                     <p>inputStream.read(inputBytes);<p>
+                    <h3></h3>
                     <p>inputStream.close();<p>
-        
+                    <h3></h3>
                     <p>// Initialize AES cipher with provided key<p>
+                    <h3></h3>
                     <p>Key secretKey = new SecretKeySpec(key.getBytes(), "AES");<p>
+                    <h3></h3>
                     <p>Cipher cipher = Cipher.getInstance("AES");<p>
+                    <h3></h3>
                     <p>cipher.init(Cipher.DECRYPT_MODE, secretKey);<p>
-        
+                    <h3></h3>
                     <p>// Decrypt input bytes<p>
+                    <h3></h3>
                     <p>byte[] decryptedBytes = cipher.doFinal(inputBytes);<p>
-        
+                    <h3></h3>
                     <p>// Write decrypted bytes to output file<p>
+                    <h3></h3>
                     <p>FileOutputStream outputStream = new FileOutputStream(outputFile);<p>
+                    <h3></h3>
                     <p>outputStream.write(decryptedBytes);<p>
+                    <h3></h3>
                     <p>outputStream.close();<p>
-        
+                    <h3></h3>
                     <p>return true;<p>
+                    <h3></h3>
                 <p>} catch (Exception e) {<p>
+                <h3></h3>
                     <p>System.out.println("Error occurred during decryption: " + e.getMessage());<p>
+                    <h3></h3>
                     <p>return false;<p>
+                    <h3></h3>
                 <p>}<p>
+                <h3></h3>
             <p>}<p>
+            <h3></h3>
         <p>}</p>
+        <h3></h3>
     </section>
 
     <!-- Footer Section -->
