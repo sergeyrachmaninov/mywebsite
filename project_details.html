@@ -35,6 +35,151 @@
         <p>Two weeks</p>
         <h3>Outcomes Achieved</h3>
         <p>The program was successfully debugged and tested. Cross-device compatitbility was ensured before publishing.</p>
+        <p>import psutil<p>
+        <h3></h3>
+        <p>import logging<p>
+        <h3></h3>
+        <p># Setup logging<p>
+        <h3></h3>
+        <p>logging.basicConfig(filename='system_check.log', level=logging.ERROR)<p>
+        <h3></h3>
+        <p>def check_cpu():<p>
+        <h3></h3>
+            <p>try:<p>
+                <h3></h3>
+                <p>cpu_usage = psutil.cpu_percent()<p>
+                <h3></h3>
+                <p>return f"CPU Usage: {cpu_usage}%"<p>
+                <h3></h3>
+            <p>except Exception as e:<p>
+                <h3></h3>
+                <p>logging.error(f"Error checking CPU: {e}")<p>
+                <h3></h3>
+                <p>return "Error checking CPU"<p>
+                <h3></h3>
+        <p>def check_ram():<p>
+            <h3></h3>
+            <p>try:<p>
+                <h3></h3>
+                <p>ram = psutil.virtual_memory()<p>
+                <h3></h3>
+                <p>total_ram = ram.total >> 30  # Convert bytes to GB using bit shift<p>
+                <h3></h3>
+                <p>used_ram = ram.used >> 30<p>
+                <h3></h3>
+                <p>return f"RAM Usage: {used_ram:.2f}GB / {total_ram:.2f}GB"<p>
+                <h3></h3>
+            <p>except Exception as e:<p>
+                <h3></h3>
+                <p>logging.error(f"Error checking RAM: {e}")<p>
+                <h3></h3>
+                <p>return "Error checking RAM"<p>
+                <h3></h3>
+        <p>def check_disk():<p>
+            <h3></h3>
+            <p>try:<p>
+                <h3></h3>
+                <p>disk_usage = psutil.disk_usage('/')<p>
+                <h3></h3>
+                <p>total_disk = disk_usage.total >> 30  # Convert bytes to GB using bit shift<p>
+                <h3></h3>
+                <p>used_disk = disk_usage.used >> 30<p>
+                <h3></h3>
+                <p>return f"Disk Usage: {used_disk:.2f}GB / {total_disk:.2f}GB"<p>
+                <h3></h3>
+            <p>except Exception as e:<p>
+                <h3></h3>
+                <p>logging.error(f"Error checking HDD: {e}")<p>
+                <h3></h3>
+                <p>return "Error checking HDD"<p>
+                <h3></h3>
+        <p>def check_ssd():<p>
+            <h3></h3>
+            <p>try:<p>
+                <h3></h3>
+                <p>ssd_usage = psutil.disk_usage('/home')  # SSD mount point<p>
+                <h3></h3>
+                <p>total_ssd = ssd_usage.total >> 30  # Convert bytes to GB using bit shift<p>
+                <h3></h3>
+                <p>used_ssd = ssd_usage.used >> 30<p>
+                <h3></h3>
+                <p>return f"SSD Usage: {used_ssd:.2f}GB / {total_ssd:.2f}GB"<p>
+                <h3></h3>
+            <p>except Exception as e:<p>
+                <h3></h3>
+                <p>logging.error(f"Error checking SSD: {e}")<p>
+                <h3></h3>
+                <p>return "Error checking SSD"<p>
+                <h3></h3>
+        <p>def check_disk_io():<p>
+            <h3></h3>
+            <p>try:<p>
+                <h3></h3>
+                <p>disk_io = psutil.disk_io_counters()<p>
+                <h3></h3>
+                <p>return f"Disk I/O: Read Count: {disk_io.read_count}, Write Count: {disk_io.write_count}"<p>
+                <h3></h3>
+            <p>except Exception as e:<p>
+                <h3></h3>
+                <p>logging.error(f"Error checking Disk I/O: {e}")<p>
+                <h3></h3>
+                <p>return "Error checking Disk I/O"<p>
+                <h3></h3>
+        <p>def check_network_io():<p>
+            <h3></h3>
+            <p>try:<p>
+                <h3></h3>
+                <p>net_io = psutil.net_io_counters()<p>
+                <h3></h3>
+                <p>return f"Network I/O: Bytes Sent: {net_io.bytes_sent}, Bytes Received: {net_io.bytes_recv}"<p>
+                <h3></h3>
+            <p>except Exception as e:<p>
+                <h3></h3>
+                <p>logging.error(f"Error checking Network I/O: {e}")<p>
+                <h3></h3>
+                <p>return "Error checking Network I/O"<p>
+                <h3></h3>
+        <p>def check_cpu_load():<p>
+            <h3></h3>
+            <p>try:<p>
+                <h3></h3>
+                <p>cpu_load = psutil.getloadavg()<p>
+                <h3></h3>
+                <p>return f"CPU Load Average: {', '.join(map(str, cpu_load))}"<p>
+                <h3></h3>
+            <p>except Exception as e:<p>
+                <h3></h3>
+                <p>logging.error(f"Error checking CPU Load Average: {e}")<p>
+                <h3></h3>
+                <p>return "Error checking CPU Load Average"<p>
+            <h3></h3>
+        <p>def main():<p>
+            <h3></h3>
+            <p>try:<p>
+                <h3></h3>
+                <p>print("Running system checks...")<p>
+                <h3></h3>
+                <p>print(check_cpu())<p>
+                <h3></h3>
+                <p>print(check_ram())<p>
+                <h3></h3>
+                <p>print(check_disk())<p>
+                <h3></h3>
+                <p>print(check_ssd())<p>
+                <h3></h3>
+                <p>print(check_disk_io())<p>
+                <h3></h3>
+                <p>print(check_network_io())<p>
+                <h3></h3>
+                <p>print(check_cpu_load())<p>
+                <h3></h3>
+            <p>except Exception as e:<p>
+                <h3></h3>
+                <p>logging.error(f"Script crashed: {e}")<p>
+            <h3></h3>
+        <p>if __name__ == "__main__":<p>
+            <h3></h3>
+            <p>main()</p>
     </section>
 
     <!-- Footer Section -->
