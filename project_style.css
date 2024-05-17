@@ -35,7 +35,7 @@ html, body {
     align-items: center;
     text-align: center; /* Center text */
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 2rem;
     overflow: auto; /* Allow container to scroll if necessary */
@@ -59,7 +59,6 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 1rem auto; /* Center the image horizontally */
 }
 
 /* Code block styles */
@@ -69,7 +68,7 @@ pre {
     padding: 1rem;
     border-radius: 5px;
     overflow-x: auto;
-    text-align: left; /* Ensure code blocks are left-aligned */
+    text-align: center; /* Ensure code blocks are left-aligned */
 }
 
 code {
