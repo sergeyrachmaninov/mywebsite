@@ -9,15 +9,14 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+    background-color: #000;
+    color: #fff;
     text-align: center;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Ensure the body takes the full viewport height */
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes the full viewport height */
 }
 
 .container {
@@ -25,16 +24,35 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
-    background-color: #fff; /* Optional: Add a background color for the container */
+    flex: 1;
+    background-color: #333; /* Optional: Add a background color for the container */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
     border-radius: 5px; /* Optional: Add rounded corners */
 }
 
 header {
-    background-color: #333;
+    background-color: #000;
     color: #fff;
     padding: 1rem;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff; /* Set navigation link color to white */
+    text-decoration: none;
 }
 
 section {
@@ -43,11 +61,12 @@ section {
 }
 
 h2, h3 {
-    color: #333;
+    color: #fff; /* Set heading color to white */
 }
 
 p {
     margin-bottom: 1rem;
+    color: #ccc; /* Set paragraph text color to a lighter shade */
 }
 
 img {
@@ -58,8 +77,8 @@ img {
 }
 
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #000; /* Set footer background to black */
+    color: #fff; /* Set footer text color to white */
     text-align: center;
     padding: 1rem 0;
 }
