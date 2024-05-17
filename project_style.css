@@ -14,8 +14,20 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
+    display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh; /* Ensure the body takes the full viewport height */
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff; /* Optional: Add a background color for the container */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+    border-radius: 5px; /* Optional: Add rounded corners */
 }
 
 header {
@@ -27,8 +39,7 @@ header {
 
 section {
     padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
+    text-align: left; /* Ensure section content is left-aligned */
 }
 
 h2, h3 {
@@ -42,6 +53,8 @@ p {
 img {
     max-width: 100%;
     height: auto;
+    display: block;
+    margin: 1rem auto; /* Center the image horizontally */
 }
 
 footer {
@@ -58,6 +71,7 @@ pre {
     padding: 1rem;
     border-radius: 5px;
     overflow-x: auto;
+    text-align: left; /* Ensure code blocks are left-aligned */
 }
 
 code {
@@ -117,4 +131,3 @@ code {
 .token.entity {
     cursor: help;
 }
-
