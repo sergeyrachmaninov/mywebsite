@@ -9,55 +9,39 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #000;
-    color: #fff;
-    text-align: center;
+    background-color: #000; /* Set background color to black */
+    color: #fff; /* Set text color to white */
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure the body takes the full viewport height */
+    min-height: 100vh; /* Ensure body takes the full viewport height */
+}
+
+.header, .footer {
+    background-color: #000; /* Set header and footer background to black */
+    color: #fff; /* Set header and footer text color to white */
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
 }
 
 .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Center text */
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
-    flex: 1;
-    background-color: #333; /* Optional: Add a background color for the container */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
-    border-radius: 5px; /* Optional: Add rounded corners */
-}
-
-header {
-    background-color: #000;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: #fff; /* Set navigation link color to white */
-    text-decoration: none;
 }
 
 section {
-    padding: 2rem;
     text-align: left; /* Ensure section content is left-aligned */
+    width: 100%;
 }
 
 h2, h3 {
@@ -74,13 +58,6 @@ img {
     height: auto;
     display: block;
     margin: 1rem auto; /* Center the image horizontally */
-}
-
-footer {
-    background-color: #000; /* Set footer background to black */
-    color: #fff; /* Set footer text color to white */
-    text-align: center;
-    padding: 1rem 0;
 }
 
 /* Code block styles */
