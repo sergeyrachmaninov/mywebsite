@@ -7,7 +7,9 @@
 
 /* project-style.css */
 
-body {
+/* Set the background color for the entire page */
+html, body {
+    height: 100%;
     font-family: Arial, sans-serif;
     background-color: #000; /* Set background color to black */
     color: #fff; /* Set text color to white */
@@ -15,7 +17,6 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure body takes the full viewport height */
 }
 
 .header, .footer {
@@ -128,4 +129,3 @@ code {
 .token.entity {
     cursor: help;
 }
-
