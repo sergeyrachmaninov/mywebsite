@@ -10,189 +10,186 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Navigation Section -->
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="index.html#home">Home</a></li>
-                    <li><a href="index.html#about">About Me</a></li>
-                    <li><a href="index.html#portfolio">Portfolio</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-    
-        <!-- Project Detail Section -->
-        <section id="project-detail">
-            <h2>System Utility Development</h2>
-            <img src="Python.png" alt="Project Image">
-            <h3>Project</h3>
-            <p>Using Python to obtain invaluable metrics on system CPU, RAM, disk, SSD, and network.</p>
-            <h3>Project Goals</h3>
-            <p>The primary objective of this project was to develop a tool that analyzes crucial hardware metrics, providing the user with valuable data about hardware health and efficiency.</p>
-            <h3>Challenges Faced</h3>
-            <p>One of the main challenges during this project was ensuring that accurate metrics were obtained following conversions.</p>
-            <h3>Technologies Used</h3>
-            <p>Python</p>
-            <h3>Project Duration</h3>
-            <p>Two weeks</p>
-            <h3>Outcomes Achieved</h3>
-            <p>The program was successfully debugged and tested for cross-system compatibility before publishing</p>
-            <h3>Code</h3>
-            <pre><code class="language-python">
-            import psutil
-            <h3></h3>
-            import logging
-            <h3></h3>
-            # Setup logging
-            <h3></h3>
-            logging.basicConfig(filename='system_check.log', level=logging.ERROR)
-            <h3></h3>
-            def check_cpu():
-            <h3></h3>
-                try:
-                    <h3></h3>
-                    cpu_usage = psutil.cpu_percent()
-                    <h3></h3>
-                    return f"CPU Usage: {cpu_usage}%"
-                    <h3></h3>
-                except Exception as e:
-                    <h3></h3>
-                    logging.error(f"Error checking CPU: {e}")
-                    <h3></h3>
-                    return "Error checking CPU"
-                    <h3></h3>
-            def check_ram():
-                <h3></h3>
-                try:
-                    <h3></h3>
-                    ram = psutil.virtual_memory()
-                    <h3></h3>
-                    total_ram = ram.total >> 30  # Convert bytes to GB using bit shift
-                    <h3></h3>
-                    used_ram = ram.used >> 30
-                    <h3></h3>
-                    return f"RAM Usage: {used_ram:.2f}GB / {total_ram:.2f}GB"
-                    <h3></h3>
-                except Exception as e:
-                    <h3></h3>
-                    logging.error(f"Error checking RAM: {e}")
-                    <h3></h3>
-                    return "Error checking RAM"
-                    <h3></h3>
-            def check_disk():
-                <h3></h3>
-                try:
-                    <h3></h3>
-                    disk_usage = psutil.disk_usage('/')
-                    <h3></h3>
-                    total_disk = disk_usage.total >> 30  # Convert bytes to GB using bit shift
-                    <h3></h3>
-                    used_disk = disk_usage.used >> 30
-                    <h3></h3>
-                    return f"Disk Usage: {used_disk:.2f}GB / {total_disk:.2f}GB"
-                    <h3></h3>
-                except Exception as e:
-                    <h3></h3>
-                    logging.error(f"Error checking HDD: {e}")
-                    <h3></h3>
-                    return "Error checking HDD"
-                    <h3></h3>
-            def check_ssd():
-                <h3></h3>
-                try:
-                    <h3></h3>
-                    ssd_usage = psutil.disk_usage('/mnt')  # SSD mount point
-                    <h3></h3>
-                    total_ssd = ssd_usage.total >> 30  # Convert bytes to GB using bit shift
-                    <h3></h3>
-                    used_ssd = ssd_usage.used >> 30
-                    <h3></h3>
-                    return f"SSD Usage: {used_ssd:.2f}GB / {total_ssd:.2f}GB"
-                    <h3></h3>
-                except Exception as e:
-                    <h3></h3>
-                    logging.error(f"Error checking SSD: {e}")
-                    <h3></h3>
-                    return "Error checking SSD"
-                    <h3></h3>
-            def check_disk_io():
-                <h3></h3>
-                try:
-                    <h3></h3>
-                    disk_io = psutil.disk_io_counters()
-                    <h3></h3>
-                    return f"Disk I/O: Read Count: {disk_io.read_count}, Write Count: {disk_io.write_count}"
-                    <h3></h3>
-                except Exception as e:
-                    <h3></h3>
-                    logging.error(f"Error checking Disk I/O: {e}")
-                    <h3></h3>
-                    return "Error checking Disk I/O"
-                    <h3></h3>
-            def check_network_io():
-                <h3></h3>
-                try:
-                    <h3></h3>
-                    net_io = psutil.net_io_counters()
-                    <h3></h3>
-                    return f"Network I/O: Bytes Sent: {net_io.bytes_sent}, Bytes Received: {net_io.bytes_recv}"
-                    <h3></h3>
-                except Exception as e:
-                    <h3></h3>
-                    logging.error(f"Error checking Network I/O: {e}")
-                    <h3></h3>
-                    return "Error checking Network I/O"
-                    <h3></h3>
-            def check_cpu_load():
-                <h3></h3>
-                try:
-                    <h3></h3>
-                    cpu_load = psutil.getloadavg()
-                    <h3></h3>
-                    return f"CPU Load Average: {', '.join(map(str, cpu_load))}"
-                    <h3></h3>
-                except Exception as e:
-                    <h3></h3>
-                    logging.error(f"Error checking CPU Load Average: {e}")
-                    <h3></h3>
-                    return "Error checking CPU Load Average"
-                <h3></h3>
-            def main():
-                <h3></h3>
-                try:
-                    <h3></h3>
-                    print("Running system checks...")
-                    <h3></h3>
-                    print(check_cpu())
-                    <h3></h3>
-                    print(check_ram())
-                    <h3></h3>
-                    print(check_disk())
-                    <h3></h3>
-                    print(check_ssd())
-                    <h3></h3>
-                    print(check_disk_io())
-                    <h3></h3>
-                    print(check_network_io())
-                    <h3></h3>
-                    print(check_cpu_load())
-                    <h3></h3>
-                except Exception as e:
-                    <h3></h3>
-                    logging.error(f"Script crashed: {e}")
-                <h3></h3>
-            if __name__ == "__main__":
-                <h3></h3>
-                main()</code></pre>
-        </section>
+    <!-- Navigation Section -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About Me</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <!-- Footer Section -->
-        <footer>
-            <p>&copy; 2024 Personal Portfolio. All rights reserved.</p>
-        </footer>
-    </div>
+    <!-- Project Detail Section -->
+    <section id="project-detail">
+        <h2>System Utility Development</h2>
+        <img src="Python.png" alt="Project Image">
+        <h3>Project</h3>
+        <p>Using Python to obtain invaluable metrics on system CPU, RAM, disk, SSD, and network.</p>
+        <h3>Project Goals</h3>
+        <p>The primary objective of this project was to develop a tool that analyzes crucial hardware metrics, providing the user with valuable data about hardware health and efficiency.</p>
+        <h3>Challenges Faced</h3>
+        <p>One of the main challenges during this project was ensuring that accurate metrics were obtained following conversions.</p>
+        <h3>Technologies Used</h3>
+        <p>Python</p>
+        <h3>Project Duration</h3>
+        <p>Two weeks</p>
+        <h3>Outcomes Achieved</h3>
+        <p>The program was successfully debugged and tested for cross-system compatibility before publishing</p>
+        <h3>Code</h3>
+        <pre><code class="language-python">
+        import psutil
+        <h3></h3>
+        import logging
+        <h3></h3>
+        # Setup logging
+        <h3></h3>
+        logging.basicConfig(filename='system_check.log', level=logging.ERROR)
+        <h3></h3>
+        def check_cpu():
+        <h3></h3>
+            try:
+                <h3></h3>
+                cpu_usage = psutil.cpu_percent()
+                <h3></h3>
+                return f"CPU Usage: {cpu_usage}%"
+                <h3></h3>
+            except Exception as e:
+                <h3></h3>
+                logging.error(f"Error checking CPU: {e}")
+                <h3></h3>
+                return "Error checking CPU"
+                <h3></h3>
+        def check_ram():
+            <h3></h3>
+            try:
+                <h3></h3>
+                ram = psutil.virtual_memory()
+                <h3></h3>
+                total_ram = ram.total >> 30  # Convert bytes to GB using bit shift
+                <h3></h3>
+                used_ram = ram.used >> 30
+                <h3></h3>
+                return f"RAM Usage: {used_ram:.2f}GB / {total_ram:.2f}GB"
+                <h3></h3>
+            except Exception as e:
+                <h3></h3>
+                logging.error(f"Error checking RAM: {e}")
+                <h3></h3>
+                return "Error checking RAM"
+                <h3></h3>
+        def check_disk():
+            <h3></h3>
+            try:
+                <h3></h3>
+                disk_usage = psutil.disk_usage('/')
+                <h3></h3>
+                total_disk = disk_usage.total >> 30  # Convert bytes to GB using bit shift
+                <h3></h3>
+                used_disk = disk_usage.used >> 30
+                <h3></h3>
+                return f"Disk Usage: {used_disk:.2f}GB / {total_disk:.2f}GB"
+                <h3></h3>
+            except Exception as e:
+                <h3></h3>
+                logging.error(f"Error checking HDD: {e}")
+                <h3></h3>
+                return "Error checking HDD"
+                <h3></h3>
+        def check_ssd():
+            <h3></h3>
+            try:
+                <h3></h3>
+                ssd_usage = psutil.disk_usage('/mnt')  # SSD mount point
+                <h3></h3>
+                total_ssd = ssd_usage.total >> 30  # Convert bytes to GB using bit shift
+                <h3></h3>
+                used_ssd = ssd_usage.used >> 30
+                <h3></h3>
+                return f"SSD Usage: {used_ssd:.2f}GB / {total_ssd:.2f}GB"
+                <h3></h3>
+            except Exception as e:
+                <h3></h3>
+                logging.error(f"Error checking SSD: {e}")
+                <h3></h3>
+                return "Error checking SSD"
+                <h3></h3>
+        def check_disk_io():
+            <h3></h3>
+            try:
+                <h3></h3>
+                disk_io = psutil.disk_io_counters()
+                <h3></h3>
+                return f"Disk I/O: Read Count: {disk_io.read_count}, Write Count: {disk_io.write_count}"
+                <h3></h3>
+            except Exception as e:
+                <h3></h3>
+                logging.error(f"Error checking Disk I/O: {e}")
+                <h3></h3>
+                return "Error checking Disk I/O"
+                <h3></h3>
+        def check_network_io():
+            <h3></h3>
+            try:
+                <h3></h3>
+                net_io = psutil.net_io_counters()
+                <h3></h3>
+                return f"Network I/O: Bytes Sent: {net_io.bytes_sent}, Bytes Received: {net_io.bytes_recv}"
+                <h3></h3>
+            except Exception as e:
+                <h3></h3>
+                logging.error(f"Error checking Network I/O: {e}")
+                <h3></h3>
+                return "Error checking Network I/O"
+                <h3></h3>
+        def check_cpu_load():
+            <h3></h3>
+            try:
+                <h3></h3>
+                cpu_load = psutil.getloadavg()
+                <h3></h3>
+                return f"CPU Load Average: {', '.join(map(str, cpu_load))}"
+                <h3></h3>
+            except Exception as e:
+                <h3></h3>
+                logging.error(f"Error checking CPU Load Average: {e}")
+                <h3></h3>
+                return "Error checking CPU Load Average"
+            <h3></h3>
+        def main():
+            <h3></h3>
+            try:
+                <h3></h3>
+                print("Running system checks...")
+                <h3></h3>
+                print(check_cpu())
+                <h3></h3>
+                print(check_ram())
+                <h3></h3>
+                print(check_disk())
+                <h3></h3>
+                print(check_ssd())
+                <h3></h3>
+                print(check_disk_io())
+                <h3></h3>
+                print(check_network_io())
+                <h3></h3>
+                print(check_cpu_load())
+                <h3></h3>
+            except Exception as e:
+                <h3></h3>
+                logging.error(f"Script crashed: {e}")
+            <h3></h3>
+        if __name__ == "__main__":
+            <h3></h3>
+            main()</code></pre>
+    </section>
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Personal Portfolio. All rights reserved.</p>
+    </footer>
     <!-- Include Prism.js JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-python.min.js"></script>
