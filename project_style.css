@@ -26,21 +26,9 @@ html, body {
 }
 
 .container {
-    display: grid;
-    grid-template-rows: auto 1fr auto; /* Grid layout to accommodate header, content, and footer */
-    min-height: 100vh; /* Ensure container takes the full viewport height */
-}
-
-.content {
-    display: grid;
-    justify-items: center;
-    align-items: start;
-    padding: 2rem;
-    width: 100%;
     max-width: 800px;
     margin: 0 auto;
-    overflow: auto; /* Allow content to scroll if necessary */
-    background-color: #000; /* Ensure the background remains black */
+    padding: 2rem;
 }
 
 section {
