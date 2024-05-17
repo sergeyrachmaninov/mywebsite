@@ -1,3 +1,10 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* project-style.css */
 
 /* Set the background color for the entire page */
@@ -8,8 +15,6 @@ html, body {
     color: #fff; /* Set text color to white */
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
 }
 
 .header, .footer {
@@ -21,17 +26,21 @@ html, body {
 }
 
 .container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center; /* Center text */
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Grid layout to accommodate header, content, and footer */
+    min-height: 100vh; /* Ensure container takes the full viewport height */
+}
+
+.content {
+    display: grid;
+    justify-items: center;
+    align-items: start;
     padding: 2rem;
-    overflow: auto; /* Allow container to scroll if necessary */
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: auto; /* Allow content to scroll if necessary */
+    background-color: #000; /* Ensure the background remains black */
 }
 
 section {
@@ -52,6 +61,7 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
+    margin: 1rem auto; /* Center the image horizontally */
 }
 
 /* Code block styles */
@@ -61,7 +71,7 @@ pre {
     padding: 1rem;
     border-radius: 5px;
     overflow-x: auto;
-    text-align: center; /* Ensure code blocks are left-aligned */
+    text-align: left; /* Ensure code blocks are left-aligned */
 }
 
 code {
@@ -121,3 +131,4 @@ code {
 .token.entity {
     cursor: help;
 }
+
