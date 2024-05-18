@@ -179,24 +179,20 @@
             main()</code></pre>
     </section>
     <script>
-            // Disable right-click
             document.addEventListener('contextmenu', function(e) {
                 e.preventDefault();
             });
     
-            // Disable text selection
             document.addEventListener('selectstart', function(e) {
                 e.preventDefault();
             });
     
-            // Disable keyboard shortcuts
             document.addEventListener('keydown', function(e) {
                 if ((e.ctrlKey && e.key === 'c') || (e.ctrlKey && e.key === 'u')) {
                     e.preventDefault();
                 }
             });
     
-            // Disable drag and drop
             document.addEventListener('dragstart', function(e) {
                 e.preventDefault();
             });
