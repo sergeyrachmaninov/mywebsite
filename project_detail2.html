@@ -67,7 +67,7 @@
                 <h3></h3>
                 ram = psutil.virtual_memory()
                 <h3></h3>
-                total_ram = ram.total >> 30  # Convert bytes to GB using bit shift
+                total_ram = ram.total >> 30 
                 <h3></h3>
                 used_ram = ram.used >> 30
                 <h3></h3>
@@ -85,7 +85,7 @@
                 <h3></h3>
                 disk_usage = psutil.disk_usage('/')
                 <h3></h3>
-                total_disk = disk_usage.total >> 30  # Convert bytes to GB using bit shift
+                total_disk = disk_usage.total >> 30  
                 <h3></h3>
                 used_disk = disk_usage.used >> 30
                 <h3></h3>
@@ -101,9 +101,9 @@
             <h3></h3>
             try:
                 <h3></h3>
-                ssd_usage = psutil.disk_usage('/mnt')  # SSD mount point
+                ssd_usage = psutil.disk_usage('/mnt')  
                 <h3></h3>
-                total_ssd = ssd_usage.total >> 30  # Convert bytes to GB using bit shift
+                total_ssd = ssd_usage.total >> 30  
                 <h3></h3>
                 used_ssd = ssd_usage.used >> 30
                 <h3></h3>
