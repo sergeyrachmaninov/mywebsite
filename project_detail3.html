@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Detail</title>
-    
     <link rel="stylesheet" href="project_style.css">
      <!-- Include Prism.js CSS for syntax highlighting -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css">
@@ -23,7 +22,6 @@
     <!-- Project Detail Section -->
     <section id="project-detail">
         <h2>Encryption App Development</h2>
-        
         <h3>Project</h3>
         <p>This project involved developing an encryption app for enhanced file security using Java.</p>
         <h3>Project Goals</h3>
@@ -102,12 +100,10 @@
                         <h3></h3>
                 }
                 <h3></h3>
-        
                 scanner.close();
                 <h3></h3>
             }
             <h3></h3> 
-        
             public static void encryptFile(Scanner scanner) {
             <h3></h3>
                 System.out.print("Enter path of the file to encrypt: ");
@@ -121,9 +117,6 @@
                 System.out.print("Enter encryption key: ");
                 <h3></h3>
                 String key = scanner.next();
-                <h3></h3>
-        
-                // Call encryptFile method with user inputs
                 <h3></h3>
                 if (performFileEncryption(inputFile, outputFile, key)) {
                 <h3></h3>
@@ -151,8 +144,6 @@
                 <h3></h3>
                 String key = scanner.next();
                 <h3></h3>
-                // Call decryptFile method with user inputs
-                <h3></h3>
                 if (performFileDecryption(inputFile, outputFile, key)) {
                 <h3></h3>
                     System.out.println("File decrypted successfully.");
@@ -168,16 +159,12 @@
             public static void generateEncryptionKey() {
                 <h3></h3>
                 try {
-                <h3></h3>
-                    // Generate AES encryption key
                     <h3></h3>
                     KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
                     <h3></h3>
                     keyGenerator.init(256);
                     <h3></h3>
                     SecretKey secretKey = keyGenerator.generateKey();
-                    <h3></h3>
-                    // Convert key to Base64 string for storage or transmission
                     <h3></h3>
                     String encodedKey = Base64.getEncoder().encodeToString(secretKey.getEncoded());
                     <h3></h3>
@@ -197,7 +184,6 @@
                 <h3></h3>
                 try {
                 <h3></h3>
-                    // Read input file
                     <h3></h3>
                     File file = new File(inputFile);
                     <h3></h3>
@@ -209,19 +195,13 @@
                     <h3></h3>
                     inputStream.close();
                     <h3></h3>
-                    // Initialize AES cipher with provided key
-                    <h3></h3>
                     Key secretKey = new SecretKeySpec(key.getBytes(), "AES");
                     <h3></h3>
                     Cipher cipher = Cipher.getInstance("AES");
                     <h3></h3>
                     cipher.init(Cipher.ENCRYPT_MODE, secretKey);
                     <h3></h3>
-                    // Encrypt input bytes
-                    <h3></h3>
                     byte[] encryptedBytes = cipher.doFinal(inputBytes);
-                    <h3></h3>
-                    // Write encrypted bytes to output file
                     <h3></h3>
                     FileOutputStream outputStream = new FileOutputStream(outputFile);
                     <h3></h3>
@@ -244,8 +224,6 @@
             public static boolean performFileDecryption(String inputFile, String outputFile, String key) {
             <h3></h3>
                 try {
-                <h3></h3>
-                    // Read input file
                     <h3></h3>
                     File file = new File(inputFile);
                     <h3></h3>
@@ -257,19 +235,13 @@
                     <h3></h3>
                     inputStream.close();
                     <h3></h3>
-                    // Initialize AES cipher with provided key
-                    <h3></h3>
                     Key secretKey = new SecretKeySpec(key.getBytes(), "AES");
                     <h3></h3>
                     Cipher cipher = Cipher.getInstance("AES");
                     <h3></h3>
                     cipher.init(Cipher.DECRYPT_MODE, secretKey);
                     <h3></h3>
-                    // Decrypt input bytes
-                    <h3></h3>
                     byte[] decryptedBytes = cipher.doFinal(inputBytes);
-                    <h3></h3>
-                    // Write decrypted bytes to output file
                     <h3></h3>
                     FileOutputStream outputStream = new FileOutputStream(outputFile);
                     <h3></h3>
