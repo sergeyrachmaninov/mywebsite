@@ -35,164 +35,90 @@
         <h3>Code</h3>
         <pre><code class="language-python">
         import psutil
-        <h3></h3>
         import logging
-        <h3></h3>
         logging.basicConfig(filename='system_check.log', level=logging.ERROR)
-        <h3></h3>
         def check_cpu():
-        <h3></h3>
             try:
-                <h3></h3>
                 cpu_usage = psutil.cpu_percent()
-                <h3></h3>
                 return f"CPU Usage: {cpu_usage}%"
-                <h3></h3>
             except Exception as e:
-                <h3></h3>
                 logging.error(f"Error checking CPU: {e}")
-                <h3></h3>
                 return "Error checking CPU"
-                <h3></h3>
         def check_ram():
-            <h3></h3>
             try:
-                <h3></h3>
                 ram = psutil.virtual_memory()
-                <h3></h3>
                 total_ram = ram.total >> 30 
-                <h3></h3>
                 used_ram = ram.used >> 30
-                <h3></h3>
                 return f"RAM Usage: {used_ram:.2f}GB / {total_ram:.2f}GB"
-                <h3></h3>
             except Exception as e:
-                <h3></h3>
                 logging.error(f"Error checking RAM: {e}")
-                <h3></h3>
                 return "Error checking RAM"
-                <h3></h3>
         def check_disk():
-            <h3></h3>
             try:
-                <h3></h3>
                 disk_usage = psutil.disk_usage('/')
-                <h3></h3>
                 total_disk = disk_usage.total >> 30  
-                <h3></h3>
                 used_disk = disk_usage.used >> 30
-                <h3></h3>
                 return f"Disk Usage: {used_disk:.2f}GB / {total_disk:.2f}GB"
-                <h3></h3>
             except Exception as e:
-                <h3></h3>
                 logging.error(f"Error checking HDD: {e}")
-                <h3></h3>
                 return "Error checking HDD"
-                <h3></h3>
         def check_ssd():
-            <h3></h3>
             try:
-                <h3></h3>
                 ssd_usage = psutil.disk_usage('/mnt')  
-                <h3></h3>
                 total_ssd = ssd_usage.total >> 30  
-                <h3></h3>
                 used_ssd = ssd_usage.used >> 30
-                <h3></h3>
                 return f"SSD Usage: {used_ssd:.2f}GB / {total_ssd:.2f}GB"
-                <h3></h3>
             except Exception as e:
-                <h3></h3>
                 logging.error(f"Error checking SSD: {e}")
-                <h3></h3>
                 return "Error checking SSD"
-                <h3></h3>
         def check_disk_io():
-            <h3></h3>
             try:
-                <h3></h3>
                 disk_io = psutil.disk_io_counters()
-                <h3></h3>
                 return f"Disk I/O: Read Count: {disk_io.read_count}, Write Count: {disk_io.write_count}"
-                <h3></h3>
             except Exception as e:
-                <h3></h3>
                 logging.error(f"Error checking Disk I/O: {e}")
-                <h3></h3>
                 return "Error checking Disk I/O"
-                <h3></h3>
         def check_network_io():
-            <h3></h3>
             try:
-                <h3></h3>
                 net_io = psutil.net_io_counters()
-                <h3></h3>
                 return f"Network I/O: Bytes Sent: {net_io.bytes_sent}, Bytes Received: {net_io.bytes_recv}"
-                <h3></h3>
             except Exception as e:
-                <h3></h3>
                 logging.error(f"Error checking Network I/O: {e}")
-                <h3></h3>
                 return "Error checking Network I/O"
-                <h3></h3>
         def check_cpu_load():
-            <h3></h3>
             try:
-                <h3></h3>
                 cpu_load = psutil.getloadavg()
-                <h3></h3>
                 return f"CPU Load Average: {', '.join(map(str, cpu_load))}"
-                <h3></h3>
             except Exception as e:
-                <h3></h3>
                 logging.error(f"Error checking CPU Load Average: {e}")
-                <h3></h3>
                 return "Error checking CPU Load Average"
-            <h3></h3>
         def main():
-            <h3></h3>
             try:
-                <h3></h3>
                 print("Running system checks...")
-                <h3></h3>
                 print(check_cpu())
-                <h3></h3>
                 print(check_ram())
-                <h3></h3>
                 print(check_disk())
-                <h3></h3>
                 print(check_ssd())
-                <h3></h3>
                 print(check_disk_io())
-                <h3></h3>
                 print(check_network_io())
-                <h3></h3>
                 print(check_cpu_load())
-                <h3></h3>
             except Exception as e:
-                <h3></h3>
                 logging.error(f"Script crashed: {e}")
-            <h3></h3>
         if __name__ == "__main__":
-            <h3></h3>
             main()</code></pre>
     </section>
     <script>
             document.addEventListener('contextmenu', function(e) {
                 e.preventDefault();
             });
-    
             document.addEventListener('selectstart', function(e) {
                 e.preventDefault();
             });
-    
             document.addEventListener('keydown', function(e) {
                 if ((e.ctrlKey && e.key === 'c') || (e.ctrlKey && e.key === 'u')) {
                     e.preventDefault();
                 }
             });
-    
             document.addEventListener('dragstart', function(e) {
                 e.preventDefault();
             });
