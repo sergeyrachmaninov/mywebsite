@@ -1,11 +1,9 @@
-/* Reset default browser styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body styles */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -19,7 +17,6 @@ body {
     text-align: center;
 }
 
-/* Navigation styles */
 header {
     background-color: #000;
     color: #fff;
@@ -40,12 +37,10 @@ nav ul li a {
     text-decoration: none;
 }
 
-/* Main section styles */
 section {
     padding: 2rem;
 }
 
-/* Portfolio section styles */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -84,7 +79,6 @@ section {
     background-color: #555;
 }
 
-/* Footer styles */
 footer {
     background-color: #000;
     color: #fff;
