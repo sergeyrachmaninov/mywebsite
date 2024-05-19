@@ -69,6 +69,7 @@ code {
     color: #f8f8f2;
 }
 
+* Prism.js theme */
 .token.comment, .token.prolog, .token.doctype, .token.cdata {
     color: #999988;
 }
@@ -150,5 +151,44 @@ code {
 }
 
 .language-java .token.operator {
+    color: #ff79c6;
+}
+
+.language-bash .token.command,
+.language-bash .token.keyword,
+.language-bash .token.selector,
+.language-bash .token.function,
+.language-bash .token.variable,
+.language-bash .token.parameter,
+.language-bash .token.builtin,
+.language-bash .token.constant,
+.language-bash .token.string,
+.language-bash .token.number,
+.language-bash .token.comment,
+.language-bash .token.hexcolor {
+    color: #ff79c6;
+}
+
+.language-python .token.decorator,
+.language-python .token.comment,
+.language-python .token.string,
+.language-python .token.number,
+.language-python .token.function,
+.language-python .token.class-name,
+.language-python .token.keyword,
+.language-python .token.module,
+.language-python .token.operator,
+.language-python .token.exception {
+    color: #ff79c6;
+}
+
+.language-java .token.comment,
+.language-java .token.string,
+.language-java .token.number,
+.language-java .token.function,
+.language-java .token.class-name,
+.language-java .token.keyword,
+.language-java .token.operator,
+.language-java .token.exception {
     color: #ff79c6;
 }
