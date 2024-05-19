@@ -3,61 +3,64 @@
     padding: 0;
     box-sizing: border-box;
 }
-body { 
+
+body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: #000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     color: #fff;
     text-align: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
 }
+
 header {
     background-color: #000;
     color: #fff;
     padding: 1rem;
-    width: 100%;
 }
+
 nav ul {
     list-style-type: none;
     display: flex;
     justify-content: center;
 }
+
 nav ul li {
     margin-right: 20px;
 }
+
 nav ul li a {
     color: #fff;
     text-decoration: none;
 }
+
 section {
     padding: 2rem;
-    width: 100%;
 }
+
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 20px;
 }
+
 .project-card {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 .project-card h3 {
     font-size: 1.2rem;
     margin-bottom: 10px;
 }
+
 .project-card p {
     font-size: 1rem;
     color: #666;
     margin-bottom: 15px;
 }
+
 .project-card a {
     display: inline-block;
     background-color: #000;
@@ -67,16 +70,19 @@ section {
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
+
 .project-card a:hover {
     background-color: #555;
 }
+
 footer {
     background-color: #000;
     color: #fff;
     text-align: center;
     padding: 1rem 0;
-    width: 100%;
 }
+
+/* Binary background effect */
 .about-content {
     display: flex;
     position: relative;
