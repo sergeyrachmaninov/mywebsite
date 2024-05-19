@@ -121,7 +121,6 @@ code {
     cursor: help;
 }
 
-/* Additional styles for Bash, Python, and Java */
 .language-bash .token.function, .language-shell .token.function {
     color: #ff79c6;
 }
