@@ -98,7 +98,7 @@ footer {
     overflow: hidden;
 }
 
-.profile-picture {
+.profile-picture { 
     position: relative;
     z-index: 1; /* Ensure the photo is above the background */
 }
