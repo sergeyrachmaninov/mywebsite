@@ -34,211 +34,211 @@
             <p>The scipt was successfully debugged and tested while ensuring cross-system compatibility.</p>
             <h3>Code</h3>
             <pre><code class="language-bash">
-            #!/bin/bash
-            # Main script
-            source firewall.sh
-            source usr_man.sh
-            source up_soft.sh
-            source ap_arm_sel.sh
-            source dns_sec.sh
-            source dys_net_proto.sh
-            source enab_2fa.sh
-            source file_sys_sec.sh
-            source fil_int_chek.sh
-            source hard_con.sh
-            source hard_kern.sh
-            source hard_net.sh
-            source hard_ntp.sh
-            source ids_set.sh
-            source imp_log.sh
-            source imp_sel.sh
-            source kern_param_hard.sh
-            source mon_log.sh
-            source pas_pol.sh
-            source sec_aud.sh
-            source sec_boot_con.sh
-            source sec_patch.sh
-            source sec_sha_mem.sh
-            source sec_temp_fil.sh
-            source ssh_key_sec.sh
-            source ssh_sec.sh
-            source sys_aud.sh
-            source time_sync.sh
-            
-            LOG_FILE="hardening_log.txt"
-            touch $LOG_FILE
-            
-            log() {
-                echo "$(date) - $1" >> $LOG_FILE
-            }
-            
-            usage() {
-                echo "Usage: $0 [options]"
-                echo "Options:"
-                echo "  -h, --help "
-                echo "  --firewall "
-                echo "  --usr-man "
-                echo "  --up-soft "
-                echo "  --ap-arm-sel "
-                echo "  --dns-sec "
-                echo "  --dys-net-proto "
-                echo "  --enab-fa "
-                echo "  --file-sys-sec "
-                echo "  --fil-int-chek "
-                echo "  --hard-con "
-                echo "  --hard-kern "
-                echo "  --hard-net "
-                echo "  --hard-ntp "
-                echo "  --ids-set "
-                echo "  --imp-log "
-                echo "  --imp-sel "
-                echo "  --kern-param-hard "
-                echo "  --mon-log "
-                echo "  --pas-pol "
-                echo "  --sec-aud "
-                echo "  --sec-boot-con "
-                echo "  --sec-patch "
-                echo "  --sec-sha-mem "
-                echo "  --sec-temp-fil "
-                echo "  --ssh-key-sec "
-                echo "  --ssh-sec "
-                echo "  --sys-aud "
-                echo "  --time-sync "
-            
-                exit 1
-            }
-            
-            while [[ $# -gt 0 ]]; do
-                key="$1"
-                case $key in
-                    -h|--help)
-                        usage
-                        ;;
-                    --firewall)
-                        enable_firewall
-                        ;;
-                    --usr-man)
-                        manage_users
-                        ;;
-                    --up-soft)
-                        update_packages
-                        ;;
-                    --ap-arm-sel)
-            	        implement_apparmor_selinux
-            	        ;;
-                	--dns-sec)
-                	    enhance_dns_security
-                	    ;;
-                	--dys-net-proto)
-                	    disable_unused_protocols
-                        ;;
-                	--enab-fa)
-                	    enable_two_factor_auth
-                	    ;;
-                	--file-sys-sec)
-                	    secure_file_system
-                	    ;;
-                	--fil-int-chek)
-                	    check_file_integrity
-                	    ;;
-                	--hard-con)
-                	    ;;
-                	--hard-kern)
-                	    harden_kernel
-                	    ;;
-                	--hard-net)
-                	    harden_network
-                	    ;;
-                	--hard-ntp)
-                	    harden_ntp_configuration
-                	    ;;
-                	--ids-set)
-                	    setup_ids
-                	    ;;
-                	--imp-log)
-                	    improve_logging_monitoring
-                	    ;;
-                	--imp-sel)
-                	    implement_selinux
-                	    ;;
-                	--kern-param-hard)
-                	    harden_kernel_parameters
-                	    ;;
-                	--mon-log)
-                	    enable_logging
-                	    ;;
-                	--pas-pol)
-                	    improve_password_policies
-                	    ;;
-                	--sec-aud)
-                	    perform_audit
-                	    ;;
-                	--sec-boot-con)
-                	    secure_boot_configuration
-                	    ;;
-                	--sec-patch)
-                	    apply_security_patches
-                	    ;;
-                	--sec-sha-mem)
-                	    secure_shared_memory
-                	    ;;
-                	--sec-temp-fil)
-                	    secure_temp_file_handling
-                	    ;;
-                	--ssh-key-sec)
-                	    enhance_ssh_security
-                	    ;;
-                	--ssh-sec)
-                	    configure_ssh
-                	    ;;
-                	--sys-aud)
-                	    audit_system
-                	    ;;
-                	--time-sync)
-                	    secure_time_synchronization
-                	    ;;
-                	)
-            
-                    *)
-                        echo "Unknown option: $key"
-                        usage
-                        ;;
-                esac
-                shift
-            done
-            
-            main() {
-                echo "Starting Linux server hardening..."
-                enable_firewall
-                manage_users
-                update_packages
-                implement_apparmor_selinux
-                enhance_dns_security
-                disable_unused_protocols
-                enable_two_factor_auth
-                secure_file_system
-                check_file_integrity
-                harden_kernel
-                harden_network
-                harden_ntp_configuration
-                setup_ids
-                improve_logging_monitoring
-                implement_selinux
-                harden_kernel_parameters
-                enable_logging
-                improve_password_policies
-                perform_audit
-                secure_boot_configuration
-                apply_security_patches
-                secure_shared_memory
-                secure_temp_file_handling
-                enhance_ssh_security
-                configure_ssh
-                audit_system
-                secure_time_synchronization
-                echo "Linux server hardening completed."
-            }
-            main </code></pre>
+                #!/bin/bash
+                # Main script
+                source firewall.sh
+                source usr_man.sh
+                source up_soft.sh
+                source ap_arm_sel.sh
+                source dns_sec.sh
+                source dys_net_proto.sh
+                source enab_2fa.sh
+                source file_sys_sec.sh
+                source fil_int_chek.sh
+                source hard_con.sh
+                source hard_kern.sh
+                source hard_net.sh
+                source hard_ntp.sh
+                source ids_set.sh
+                source imp_log.sh
+                source imp_sel.sh
+                source kern_param_hard.sh
+                source mon_log.sh
+                source pas_pol.sh
+                source sec_aud.sh
+                source sec_boot_con.sh
+                source sec_patch.sh
+                source sec_sha_mem.sh
+                source sec_temp_fil.sh
+                source ssh_key_sec.sh
+                source ssh_sec.sh
+                source sys_aud.sh
+                source time_sync.sh
+                
+                LOG_FILE="hardening_log.txt"
+                touch $LOG_FILE
+                
+                log() {
+                    echo "$(date) - $1" >> $LOG_FILE
+                }
+                
+                usage() {
+                    echo "Usage: $0 [options]"
+                    echo "Options:"
+                    echo "  -h, --help "
+                    echo "  --firewall "
+                    echo "  --usr-man "
+                    echo "  --up-soft "
+                    echo "  --ap-arm-sel "
+                    echo "  --dns-sec "
+                    echo "  --dys-net-proto "
+                    echo "  --enab-fa "
+                    echo "  --file-sys-sec "
+                    echo "  --fil-int-chek "
+                    echo "  --hard-con "
+                    echo "  --hard-kern "
+                    echo "  --hard-net "
+                    echo "  --hard-ntp "
+                    echo "  --ids-set "
+                    echo "  --imp-log "
+                    echo "  --imp-sel "
+                    echo "  --kern-param-hard "
+                    echo "  --mon-log "
+                    echo "  --pas-pol "
+                    echo "  --sec-aud "
+                    echo "  --sec-boot-con "
+                    echo "  --sec-patch "
+                    echo "  --sec-sha-mem "
+                    echo "  --sec-temp-fil "
+                    echo "  --ssh-key-sec "
+                    echo "  --ssh-sec "
+                    echo "  --sys-aud "
+                    echo "  --time-sync "
+                
+                    exit 1
+                }
+                
+                while [[ $# -gt 0 ]]; do
+                    key="$1"
+                    case $key in
+                        -h|--help)
+                            usage
+                            ;;
+                        --firewall)
+                            enable_firewall
+                            ;;
+                        --usr-man)
+                            manage_users
+                            ;;
+                        --up-soft)
+                            update_packages
+                            ;;
+                        --ap-arm-sel)
+                	        implement_apparmor_selinux
+                	        ;;
+                    	--dns-sec)
+                    	    enhance_dns_security
+                    	    ;;
+                    	--dys-net-proto)
+                    	    disable_unused_protocols
+                            ;;
+                    	--enab-fa)
+                    	    enable_two_factor_auth
+                    	    ;;
+                    	--file-sys-sec)
+                    	    secure_file_system
+                    	    ;;
+                    	--fil-int-chek)
+                    	    check_file_integrity
+                    	    ;;
+                    	--hard-con)
+                    	    ;;
+                    	--hard-kern)
+                    	    harden_kernel
+                    	    ;;
+                    	--hard-net)
+                    	    harden_network
+                    	    ;;
+                    	--hard-ntp)
+                    	    harden_ntp_configuration
+                    	    ;;
+                    	--ids-set)
+                    	    setup_ids
+                    	    ;;
+                    	--imp-log)
+                    	    improve_logging_monitoring
+                    	    ;;
+                    	--imp-sel)
+                    	    implement_selinux
+                    	    ;;
+                    	--kern-param-hard)
+                    	    harden_kernel_parameters
+                    	    ;;
+                    	--mon-log)
+                    	    enable_logging
+                    	    ;;
+                    	--pas-pol)
+                    	    improve_password_policies
+                    	    ;;
+                    	--sec-aud)
+                    	    perform_audit
+                    	    ;;
+                    	--sec-boot-con)
+                    	    secure_boot_configuration
+                    	    ;;
+                    	--sec-patch)
+                    	    apply_security_patches
+                    	    ;;
+                    	--sec-sha-mem)
+                    	    secure_shared_memory
+                    	    ;;
+                    	--sec-temp-fil)
+                    	    secure_temp_file_handling
+                    	    ;;
+                    	--ssh-key-sec)
+                    	    enhance_ssh_security
+                    	    ;;
+                    	--ssh-sec)
+                    	    configure_ssh
+                    	    ;;
+                    	--sys-aud)
+                    	    audit_system
+                    	    ;;
+                    	--time-sync)
+                    	    secure_time_synchronization
+                    	    ;;
+                    	)
+                
+                        *)
+                            echo "Unknown option: $key"
+                            usage
+                            ;;
+                    esac
+                    shift
+                done
+                
+                main() {
+                    echo "Starting Linux server hardening..."
+                    enable_firewall
+                    manage_users
+                    update_packages
+                    implement_apparmor_selinux
+                    enhance_dns_security
+                    disable_unused_protocols
+                    enable_two_factor_auth
+                    secure_file_system
+                    check_file_integrity
+                    harden_kernel
+                    harden_network
+                    harden_ntp_configuration
+                    setup_ids
+                    improve_logging_monitoring
+                    implement_selinux
+                    harden_kernel_parameters
+                    enable_logging
+                    improve_password_policies
+                    perform_audit
+                    secure_boot_configuration
+                    apply_security_patches
+                    secure_shared_memory
+                    secure_temp_file_handling
+                    enhance_ssh_security
+                    configure_ssh
+                    audit_system
+                    secure_time_synchronization
+                    echo "Linux server hardening completed."
+                }
+                main </code></pre>
         </section>
         <script>
             document.addEventListener('contextmenu', function(e) {
@@ -261,6 +261,5 @@
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/command-line/prism-command-line.min.js"></script>
 </body>
 </html>
