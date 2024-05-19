@@ -79,36 +79,33 @@ footer {
 }
 .about-content {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background: #000;
-    padding: 2rem;
     position: relative;
+    padding: 2rem;
+    background: #000;
+    color: #fff;
+}
+
+.binary-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
     overflow: hidden;
 }
-.profile-picture {
-    position: relative;
-    z-index: 2;
-}
-.about-description {
-    max-width: 600px;
-    margin-left: 2rem;
-    z-index: 2;
-}
-.about-content::before {
+
+.binary-background::before {
     content: "010010010101010010010010101010010010101001010010101010010010010010010101010010010010101001010010101010010010010010010101010010010010101001010010101010010010010010010101010010010010101001010010101010010010";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    color: rgba(0, 255, 0, 0.1);
+    color: rgba(0, 255, 0, 0.1); /* Light green color */
     font-family: 'Courier New', Courier, monospace;
     font-size: 2rem;
-    z-index: 1;
     white-space: pre-wrap;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -117,6 +114,13 @@ footer {
     opacity: 0.2;
     animation: scrollBinary 10s linear infinite;
 }
+
+.profile-picture,
+.about-description {
+    position: relative;
+    z-index: 2; /* Ensure content is above the background */
+}
+
 @keyframes scrollBinary {
     0% { transform: translateY(0); }
     100% { transform: translateY(-100%); }
