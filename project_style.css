@@ -1,5 +1,3 @@
-
-
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -71,7 +69,6 @@ code {
     color: #f8f8f2;
 }
 
-/* Prism.js theme */
 .token.comment, .token.prolog, .token.doctype, .token.cdata {
     color: #999988;
 }
@@ -122,4 +119,37 @@ code {
 
 .token.entity {
     cursor: help;
+}
+
+/* Additional styles for Bash, Python, and Java */
+.language-bash .token.function, .language-shell .token.function {
+    color: #ff79c6;
+}
+
+.language-bash .token.variable, .language-shell .token.variable {
+    color: #bd93f9;
+}
+
+.language-python .token.keyword {
+    color: #ff79c6;
+}
+
+.language-python .token.operator {
+    color: #ff79c6;
+}
+
+.language-python .token.function {
+    color: #50fa7b;
+}
+
+.language-java .token.class-name, .language-java .token.function {
+    color: #50fa7b;
+}
+
+.language-java .token.keyword {
+    color: #ff79c6;
+}
+
+.language-java .token.operator {
+    color: #ff79c6;
 }
