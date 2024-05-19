@@ -122,73 +122,89 @@ code {
     cursor: help;
 }
 
-.language-bash .token.function, .language-shell .token.function {
-    color: #ff79c6;
+.token.comment, .token.prolog, .token.doctype, .token.cdata {
+    color: #999988;
 }
 
-.language-bash .token.variable, .language-shell .token.variable {
+.token.punctuation {
+    color: #f8f8f2;
+}
+
+.token.namespace {
+    opacity: .7;
+}
+
+.token.property, .token.tag, .token.constant, .token.symbol, .token.deleted {
+    color: #f92672;
+}
+
+.token.boolean, .token.number {
+    color: #ae81ff;
+}
+
+.token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted {
+    color: #a6e22e;
+}
+
+.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string {
+    color: #e6db74;
+}
+
+.token.atrule, .token.attr-value, .token.keyword {
+    color: #66d9ef;
+}
+
+.token.function {
+    color: #fd971f;
+}
+
+.token.regex, .token.important, .token.variable {
+    color: #fd971f;
+}
+
+.token.important, .token.bold {
+    font-weight: bold;
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+.language-bash .token.function {
+    color: #50fa7b;
+}
+
+.language-python .token.variable,
+.language-python .token.parameter,
+.language-python .token.builtin,
+.language-python .token.constant,
+.language-python .token.number {
     color: #bd93f9;
 }
 
-.language-python .token.keyword {
-    color: #ff79c6;
-}
-
-.language-python .token.operator {
-    color: #ff79c6;
-}
-
-.language-python .token.function {
-    color: #50fa7b;
-}
-
-.language-java .token.class-name, .language-java .token.function {
-    color: #50fa7b;
-}
-
-.language-java .token.keyword {
-    color: #ff79c6;
-}
-
-.language-java .token.operator {
+.language-java .token.class-name,
+.language-java .token.function,
+.language-java .token.type,
+.language-java .token.annotation {
     color: #ff79c6;
 }
 
 .language-bash .token.command,
-.language-bash .token.keyword,
-.language-bash .token.selector,
-.language-bash .token.function,
 .language-bash .token.variable,
 .language-bash .token.parameter,
-.language-bash .token.builtin,
-.language-bash .token.constant,
-.language-bash .token.string,
-.language-bash .token.number,
-.language-bash .token.comment,
-.language-bash .token.hexcolor {
-    color: #ff79c6;
+.language-bash .token.function {
+    color: #50fa7b;
 }
 
-.language-python .token.decorator,
-.language-python .token.comment,
-.language-python .token.string,
-.language-python .token.number,
-.language-python .token.function,
 .language-python .token.class-name,
-.language-python .token.keyword,
-.language-python .token.module,
-.language-python .token.operator,
-.language-python .token.exception {
-    color: #ff79c6;
+.language-python .token.function {
+    color: #50fa7b;
 }
 
-.language-java .token.comment,
-.language-java .token.string,
-.language-java .token.number,
-.language-java .token.function,
-.language-java .token.class-name,
-.language-java .token.keyword,
-.language-java .token.operator,
-.language-java .token.exception {
-    color: #ff79c6;
+.language-java .token.variable {
+    color: #50fa7b;
 }
