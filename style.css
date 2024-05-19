@@ -3,68 +3,61 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: #000;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
     color: #fff;
     text-align: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
-
 header {
     background-color: #000;
     color: #fff;
     padding: 1rem;
+    width: 100%;
 }
-
 nav ul {
     list-style-type: none;
+    display: flex;
+    justify-content: center;
 }
-
 nav ul li {
-    display: inline;
     margin-right: 20px;
 }
-
 nav ul li a {
     color: #fff;
     text-decoration: none;
 }
-
 section {
     padding: 2rem;
+    width: 100%;
 }
-
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 20px;
 }
-
 .project-card {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 .project-card h3 {
     font-size: 1.2rem;
     margin-bottom: 10px;
 }
-
 .project-card p {
     font-size: 1rem;
     color: #666;
     margin-bottom: 15px;
 }
-
 .project-card a {
     display: inline-block;
     background-color: #000;
@@ -74,18 +67,16 @@ section {
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
-
 .project-card a:hover {
     background-color: #555;
 }
-
 footer {
     background-color: #000;
     color: #fff;
     text-align: center;
     padding: 1rem 0;
+    width: 100%;
 }
-
 /* Binary background effect */
 .about-content {
     display: flex;
@@ -97,18 +88,15 @@ footer {
     position: relative;
     overflow: hidden;
 }
-
-.profile-picture { 
+.profile-picture {
     position: relative;
-    z-index: 1; /* Ensure the photo is above the background */
+    z-index: 2; /* Ensure the photo is above the background */
 }
-
 .about-description {
     max-width: 600px;
     margin-left: 2rem;
-    z-index: 1; /* Ensure the text is above the background */
+    z-index: 2; /* Ensure the text is above the background */
 }
-
 .about-content::before {
     content: "010010010101010010010010101010010010101001010010101010010010010010010101010010010010101001010010101010010010010010010101010010010010101001010010101010010010010010010101010010010010101001010010101010010010";
     position: absolute;
@@ -119,7 +107,7 @@ footer {
     color: rgba(0, 255, 0, 0.1); /* Light green color */
     font-family: 'Courier New', Courier, monospace;
     font-size: 2rem;
-    z-index: 1; /* Ensure the binary background is behind content */
+    z-index: 1; /* Ensure the binary background is behind content but above the base */
     white-space: pre-wrap;
     overflow: hidden;
     display: flex;
@@ -130,7 +118,6 @@ footer {
     opacity: 0.2;
     animation: scrollBinary 10s linear infinite;
 }
-
 @keyframes scrollBinary {
     0% { transform: translateY(0); }
     100% { transform: translateY(-100%); }
