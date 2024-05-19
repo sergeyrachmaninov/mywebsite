@@ -96,18 +96,17 @@ footer {
     padding: 2rem;
     position: relative;
     overflow: hidden;
-    z-index: 0; /* Base z-index for stacking context */
 }
 
 .profile-picture {
     position: relative;
-    z-index: 2; /* Ensure the photo is above the background */
+    z-index: 1; /* Ensure the photo is above the background */
 }
 
 .about-description {
     max-width: 600px;
     margin-left: 2rem;
-    z-index: 2; /* Ensure the text is above the background */
+    z-index: 1; /* Ensure the text is above the background */
 }
 
 .about-content::before {
@@ -120,7 +119,7 @@ footer {
     color: rgba(0, 255, 0, 0.1); /* Light green color */
     font-family: 'Courier New', Courier, monospace;
     font-size: 2rem;
-    z-index: 1; /* Ensure the binary background is behind content but above the base */
+    z-index: 0; /* Ensure the binary background is behind content */
     white-space: pre-wrap;
     overflow: hidden;
     display: flex;
