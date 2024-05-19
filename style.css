@@ -95,6 +95,7 @@ footer {
     background: #000; /* Ensure black background */
     padding: 2rem;
     position: relative;
+    overflow: hidden;
 }
 
 .profile-picture {
@@ -109,7 +110,7 @@ footer {
 }
 
 .about-content::before {
-    content: "010010010101010010010010101010010010101001010010101010010010";
+    content: "010010010101010010010010101010010010101001010010101010010010010010010101010010010010101001010010101010010010010010010101010010010010101001010010101010010010010010010101010010010010101001010010101010010010";
     position: absolute;
     top: 0;
     left: 0;
@@ -134,4 +135,3 @@ footer {
     0% { transform: translateY(0); }
     100% { transform: translateY(-100%); }
 }
-
