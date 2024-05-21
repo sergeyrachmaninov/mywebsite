@@ -238,7 +238,369 @@
                     secure_time_synchronization
                     echo "Linux server hardening completed."
                 }
-                main </code></pre>
+                main 
+                
+                #!/bin/bash
+                # ap_arm_sel.sh
+                implement_apparmor_selinux() {
+                
+                    sudo apt-get install apparmor -y
+                    sudo systemctl enable apparmor
+                    sudo systemctl start apparmor
+                    sudo aa-enforce /etc/apparmor.d/usr.sbin.apache2
+                
+                    log "AppArmor or SELinux implemented."
+                } 
+                
+                #!/bin/bash
+                # dns_sec.sh
+                enhance_dns_security() {
+                
+                    echo "options timeout:2 attempts:2" | sudo tee -a /etc/resolv.conf
+                    echo "options single-request-reopen" | sudo tee -a /etc/resolv.conf
+                
+                    sudo iptables -A OUTPUT -p udp --dport 53 -m owner ! --uid-owner named -j DROP
+                
+                    log "DNS security enhanced."
+                }
+                
+                #!/bin/bash
+                # dys_net_proto.sh
+                disable_unused_protocols() {
+        
+                    sudo modprobe -r dccp
+                    sudo modprobe -r sctp
+                    sudo modprobe -r rds
+                    sudo modprobe -r tipc
+                
+                    echo "install dccp /bin/true" | sudo tee -a /etc/modprobe.d/disable-dccp.conf
+                    echo "install sctp /bin/true" | sudo tee -a /etc/modprobe.d/disable-sctp.conf
+                    echo "install rds /bin/true" | sudo tee -a /etc/modprobe.d/disable-rds.conf
+                    echo "install tipc /bin/true" | sudo tee -a /etc/modprobe.d/disable-tipc.conf
+                
+                    log "Unused network protocols disabled."
+                }
+                
+                #!/bin/bash
+                # enab_2fa.sh
+                enable_two_factor_auth() {
+        
+                    sudo apt-get install libpam-google-authenticator -y
+                    google-authenticator
+                
+                    echo "auth required pam_google_authenticator.so" | sudo tee -a /etc/pam.d/sshd
+                
+                    sudo systemctl restart sshd
+                
+                    log "Two-factor authentication enabled."
+                }
+                
+                #!/bin/bash
+                # fil_sys_sec.sh
+                secure_file_system() {
+        
+                    sudo chmod 600 /etc/passwd /etc/shadow /etc/group /etc/gshadow
+                    sudo chmod 700 /root
+                
+                    sudo mount -o remount,noexec /tmp
+                    sudo mount -o remount,noexec /dev/shm
+                
+                    log "File system security enhanced."
+                }
+                
+                #!/bin/bash
+                # fil_int_chek.sh
+                check_file_integrity() {
+        
+                    sudo apt-get install aide -y
+                    sudo aideinit
+                
+                    sudo mv /etc/cron.daily/aide /etc/cron.weekly/
+                
+                    log "System file integrity checking configured."
+                }
+                
+                #!/bin/bash
+                # firewall.sh
+                enable_firewall() {
+        
+                    sudo systemctl start firewalld
+                    sudo systemctl enable firewalld
+                
+                    sudo firewall-cmd --zone=public --add-service=http --permanent
+                    sudo firewall-cmd --zone=public --add-service=https --permanent
+                
+                    sudo firewall-cmd --reload
+                
+                    log "Firewall enabled and configured."
+                }
+                
+                #!/bin/bash
+                # hard_kern.sh
+                harden_kernel() {
+        
+                    sudo sysctl -w kernel.randomize_va_space=2
+                    sudo sysctl -w kernel.exec-shield=1
+                    sudo sysctl -w kernel.modules_disabled=1
+                
+                    echo "kernel.randomize_va_space=2" | sudo tee -a /etc/sysctl.conf
+                    echo "kernel.exec-shield=1" | sudo tee -a /etc/sysctl.conf
+                    echo "kernel.modules_disabled=1" | sudo tee -a /etc/sysctl.conf
+                    sudo sysctl -p
+                
+                    log "Kernel hardened."
+                }
+                
+                #!/bin/bash
+                # hard_net.sh
+                harden_network() {
+        
+                    echo "net.ipv6.conf.all.disable_ipv6 = 1" | sudo tee -a /etc/sysctl.conf
+                    sudo sysctl -p
+                
+                    echo "net.ipv4.tcp_syncookies = 1" | sudo tee -a /etc/sysctl.conf
+                    sudo sysctl -p
+                
+                    log "Network hardened."
+                }
+                
+                #!/bin/bash
+                # hard_ntp.sh
+                harden_ntp_configuration() {
+        
+                    echo "restrict default kod nomodify notrap nopeer noquery" | sudo tee -a /etc/ntp.conf
+                    echo "restrict -6 default kod nomodify notrap nopeer noquery" | sudo tee -a /etc/ntp.conf
+                
+                    echo "listen on 127.0.0.1" | sudo tee -a /etc/ntp.conf
+                
+                    sudo systemctl restart ntp
+                
+                    log "NTP configuration hardened."
+                }
+                
+                #!/bin/bash
+                # hard_serv.sh
+                harden_services() {
+        
+                    sudo systemctl disable <service_name>
+                    sudo sed -i 's/Listen 80/Listen 192.168.1.100:80/' /etc/httpd/conf/httpd.conf
+                
+                    log "Services hardened."
+                }
+                
+                #!/bin/bash
+                # ids_set.sh
+                setup_ids() {
+
+                    sudo apt-get install fail2ban -y
+                    sudo systemctl enable fail2ban
+                    sudo systemctl start fail2ban
+                
+                    log "Intrusion detection system set up."
+                }
+                
+                #!/bin/bash
+                # imp_log.sh
+                improve_logging_monitoring() {
+                
+                    sudo apt-get install syslog-ng -y
+                
+                    log "Logging and monitoring improved."
+                }
+            
+                #!/bin/bash
+                # imp_sel.sh
+                implement_selinux() {
+                
+                    sudo apt-get install selinux-utils -y
+                    sudo setenforce 1
+                
+                    log "SELinux implemented and set to enforcing mode."
+                }
+            
+                #!/bin/bash
+                # kern_param_hard.sh
+                harden_kernel_parameters() {
+
+                    echo "kernel.dmesg_restrict = 1" | sudo tee -a /etc/sysctl.conf
+                    echo "kernel.kptr_restrict = 2" | sudo tee -a /etc/sysctl.conf
+                
+                    sudo sysctl -p
+                
+                    log "System kernel parameters hardened."
+                }
+
+                #!/bin/bash
+                # mon_log.sh
+                enable_logging() {
+
+                    sudo systemctl start rsyslog
+                    sudo systemctl enable rsyslog
+                
+                    sudo cp /etc/logrotate.conf /etc/logrotate.conf.bak
+                    echo "/var/log/myapp.log {
+                        weekly
+                        rotate 4
+                        compress
+                        missingok
+                        notifempty
+                    }" | sudo tee -a /etc/logrotate.conf
+                
+                    sudo systemctl restart rsyslog
+                
+                    log "Log monitoring enabled and configured."
+                }
+            
+                #!/bin/bash
+                # pas_pol.sh
+                improve_password_policies() {
+                
+                    sudo apt-get install libpam-cracklib -y
+                    echo "password requisite pam_cracklib.so retry=3 minlen=8 difok=3 dcredit=-1 ucredit=-1 ocredit=-1 lcredit=-1" | sudo tee -a /etc/pam.d/common-password
+                
+                    sudo chage --maxdays 90 <username>
+                
+                    log "Password policies improved."
+                }
+            
+                #!/bin/bash
+                # sec_aud.sh
+                perform_audit() {
+                
+                    sudo lynis audit system
+                
+                    log "Security audit completed."
+                }
+            
+                #!/bin/bash
+                # sec_boot_con.sh
+                secure_boot_configuration() {
+                
+                    sudo chmod 0700 /boot/grub/grub.cfg
+                    sudo chmod 0700 /boot/grub/grub.cfg-*
+                
+                    sudo grub-mkpasswd-pbkdf2 | sudo tee /boot/grub/grub.cfg > /dev/null
+                    sudo sed -i '/^GRUB_CMDLINE_LINUX=/ s/"$/ grub_password=HASH"/' /etc/default/grub
+                    sudo update-grub
+                
+                    log "Boot configuration secured."
+                }
+            
+                #!/bin/bash
+                # sec_patch.sh
+                apply_security_patches() {
+                
+                    sudo yum update --security -y
+                    sudo apt-get upgrade --only-upgrade -y
+                
+                    log "Security patches applied."
+                }
+            
+                #!/bin/bash
+                # sec_sha_mem.sh
+                secure_shared_memory() {
+                
+                    echo "none /run/shm tmpfs rw,noexec,nosuid,nodev 0 0" | sudo tee -a /etc/fstab
+                    sudo mount -o remount /run/shm
+                
+                    log "Shared memory security configured."
+                }
+            
+                #!/bin/bash
+                # sec_temp_fil.sh
+                secure_temp_file_handling() {
+                
+                    sudo chmod 1777 /tmp
+                    sudo chmod 1777 /var/tmp
+                
+                    sudo cp -p /etc/fstab /etc/fstab.bak
+                    echo "tmpfs /tmp tmpfs defaults,noexec,nosuid 0 0" | sudo tee -a /etc/fstab
+                    echo "tmpfs /var/tmp tmpfs defaults,noexec,nosuid 0 0" | sudo tee -a /etc/fstab
+                    sudo mount -o remount /tmp
+                    sudo mount -o remount /var/tmp
+                
+                    log "Temporary file handling secured."
+                }
+            
+                #!/bin/bash
+                # ssh_key_sec.sh
+                enhance_ssh_security() {
+                
+                    sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
+                
+                    sudo sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/' /etc/ssh/sshd_config
+                
+                    sudo systemctl restart sshd
+                
+                    log "SSH security enhanced with key-based authentication."
+                }
+            
+                #!/bin/bash
+                # ssh_sec.sh
+                configure_ssh() {
+                
+                    sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak
+                
+                    sudo sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
+                    sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
+                
+                    echo "AllowUsers user1 user2" | sudo tee -a /etc/ssh/sshd_config
+                
+                    sudo systemctl reload sshd
+                
+                    log "SSH configuration hardened."
+                }
+            
+                #!/bin/bash
+                # sys_aud.sh
+                audit_system() {
+                
+                    sudo apt-get install auditd -y
+                    sudo systemctl enable auditd
+                    sudo systemctl start auditd
+                
+                    sudo auditctl -a always,exit -F arch=b64 -S execve -k audit_execve
+                    sudo auditctl -a always,exit -F arch=b32 -S execve -k audit_execve
+                    sudo auditctl -a always,exit -F arch=b64 -S execveat -k audit_execve
+                    sudo auditctl -a always,exit -F arch=b32 -S execveat -k audit_execve
+                
+                    log "System auditing configured."
+                }
+            
+                #!/bin/bash
+                # time_sync.sh
+                secure_time_synchronization() {
+                
+                    echo "restrict -4 default kod nomodify notrap nopeer noquery" | sudo tee -a /etc/ntp.conf
+                    echo "restrict -6 default kod nomodify notrap nopeer noquery" | sudo tee -a /etc/ntp.conf
+                
+                    sudo systemctl restart ntp
+                
+                    log "System time synchronization secured."
+                }
+            
+                #!/bin/bash
+                # up_soft.sh
+                update_packages() {
+                
+                    sudo yum update -y
+                    sudo apt-get update && sudo apt-get upgrade -y
+                
+                    log "Software packages updated."
+                }
+            
+                #!/bin/bash
+                # usr_man.sh
+                manage_users() {
+                
+                    sudo usermod -L <username>
+                
+                    sudo passwd --maxdays 90 <username>
+                
+                    sudo usermod -s /sbin/nologin <username>
+                
+                    log "User management tasks completed."
+                }</code></pre>
         </section>
         <script>
             document.addEventListener('contextmenu', function(e) {
