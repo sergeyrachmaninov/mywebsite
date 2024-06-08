@@ -21,6 +21,8 @@ header {
     background-color: #000;
     color: #fff;
     padding: 1rem;
+    position: relative; /*new*/
+    z-index: 2; /* new*/
 }
 
 nav ul {
@@ -95,17 +97,18 @@ footer {
     background: #000; /* Ensure black background */
     padding: 2rem;
     position: relative;
+    z-index: 1; /*new*/
 }
 
 .profile-picture {
     position: relative;
-    z-index: 1; /* Ensure the photo is above the background */
+    z-index: 2; /* new */
 }
 
 .about-description {
     max-width: 600px;
     margin-left: 2rem;
-    z-index: 1; /* Ensure the text is above the background */
+    z-index: 2; /* new */
 }
 
 .about-content::before {
