@@ -101,20 +101,25 @@
 	</section> 
 	<script>
             document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+        });
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey && e.key === 'c') || (e.ctrlKey && e.key === 'u')) {
                 e.preventDefault();
+            }
+        });
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+        });
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.stopPropagation();
             });
-            document.addEventListener('selectstart', function(e) {
-                e.preventDefault();
-            });
-            document.addEventListener('keydown', function(e) {
-                if ((e.ctrlKey && e.key === 'c') || (e.ctrlKey && e.key === 'u')) {
-                    e.preventDefault();
-                }
-            });
-            document.addEventListener('dragstart', function(e) {
-                e.preventDefault();
-            });
-        </script>
+        });
+    </script>
     <footer>
         <p>&copy; 2024 Personal Portfolio. All rights reserved.</p>
     </footer>
