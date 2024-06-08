@@ -22,7 +22,7 @@ header {
     color: #fff;
     padding: 1rem;
     position: relative; /*new*/
-    z-index: 2; /* new*/
+    z-index: 10; /* new*/
 }
 
 nav ul {
@@ -37,6 +37,8 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    position: relative;
+    z-index: 11;
 }
 
 section {
