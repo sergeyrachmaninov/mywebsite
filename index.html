@@ -101,10 +101,10 @@
 	</section> 
 	<script>
             document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
+            	e.preventDefault();
             });
             document.addEventListener('selectstart', function(e) {
-            e.preventDefault();
+            	e.preventDefault();
             });
             document.addEventListener('keydown', function(e) {
                 if ((e.ctrlKey && e.key === 'c') || (e.ctrlKey && e.key === 'u')) {
@@ -112,13 +112,13 @@
                 }
             });
             document.addEventListener('dragstart', function(e) {
-                e.preventDefault();
+        	e.preventDefault();
             });
             document.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.stopPropagation();
                 });
-            });
+          });
     </script>
     <footer>
         <p>&copy; 2024 Personal Portfolio. All rights reserved.</p>
