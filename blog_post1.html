@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Detail</title>
+    <link rel="stylesheet" href="project_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About Me</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#blog">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li> 
+            </ul>
+        </nav>
+    </header>
+    <section id="project-detail">
+        <h2>Cyber Security</h2>
+        <h3>Article title</h3>
+        <p>Author</p>
+        <pre><code class="language-python">
+          Write your article here. Adjust code class for different colors/fonts. 
+        
+                </code></pre>
+    </section> 
+    <script>
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+            });
+            document.addEventListener('selectstart', function(e) {
+                e.preventDefault();
+            });
+            document.addEventListener('keydown', function(e) {
+                if ((e.ctrlKey && e.key === 'c') || (e.ctrlKey && e.key === 'u')) {
+                    e.preventDefault();
+                }
+            });
+            document.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+            });
+        </script>
+    <footer>
+        <p>&copy; 2024 Personal Portfolio. All rights reserved.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+</html>
