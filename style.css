@@ -46,6 +46,14 @@ section {
     padding: 2rem;
 }
 
+a:hover {
+    color: yellow; 
+}
+
+a:clicked {
+    color: pink;
+}
+
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
