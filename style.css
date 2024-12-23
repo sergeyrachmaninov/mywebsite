@@ -114,9 +114,6 @@ footer {
 .profile-picture {
     position: relative;
     z-index: 2; /* new */
-    width: 425px;
-    height: 700px;
-    border-radius: 30px;
 }
 
 .about-description {
