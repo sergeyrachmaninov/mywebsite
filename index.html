@@ -146,12 +146,16 @@
                     e.stopPropagation();
         	}
 	    });
-		const audio = new Audio('AC_DC_YSMANL.m4a');
-			audio.play();
-          });
-    </script>
+    	</script>
+    	<script>
+	    const audio = new Audio('AC_DC_YSMANL.m4a');
+		    audio.play();
+		    audio.autoplay = true;
+	    if (typeof audio.volume === 'undefined') {
+		    audio.volume = 0.5;
+        </script>
     <footer>
-        <p>&copy; 2024 Personal Portfolio. All rights reserved.</p>
+        <p>&copy; 2025 Professional Portfolio. All rights reserved.</p>
     </footer>
 </body>
 </html>
