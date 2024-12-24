@@ -49,6 +49,14 @@ img {
     height: auto;
 }
 
+a:hover {
+    color: pink;
+}
+
+a:clicked {
+    color:green;
+}
+
 footer {
     background-color: #333;
     color: #fff;
