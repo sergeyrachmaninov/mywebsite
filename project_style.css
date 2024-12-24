@@ -53,7 +53,7 @@ a:hover {
     color: pink;
 }
 
-a:clicked {
+a:visited {
     color:green;
 }
 
