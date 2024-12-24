@@ -49,6 +49,10 @@ img {
     height: auto;
 }
 
+a:link {
+    color: white;
+}
+
 a:hover {
     color: yellow;
 }
