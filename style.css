@@ -47,11 +47,11 @@ section {
 }
 
 a:hover {
-    color: yellow; 
+    color: pink; 
 }
 
 a:clicked {
-    color: pink;
+    color: green;
 }
 
 .project-grid {
