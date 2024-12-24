@@ -46,6 +46,10 @@ section {
     padding: 2rem;
 }
 
+a:link {
+    color: white;
+}
+
 a:hover {
     color: yellow; 
 }
