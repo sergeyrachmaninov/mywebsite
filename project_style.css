@@ -50,11 +50,11 @@ img {
 }
 
 a:hover {
-    color: pink;
+    color: yellow;
 }
 
 a:visited {
-    color:green;
+    color: purple;
 }
 
 footer {
